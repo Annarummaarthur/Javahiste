@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Staatliches&display=swap");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+li{ 
+	  list-style-type: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+header{
+    
+    padding: 8px;
+}
+
+ .flex{
+  display: flex;
+} 
+
+.btn{
+  width: 10vw;
+  height: 5vh;
+  background-color: #D81D1D;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: large;
+  color: white;
+}
+.btn::after{
+  content: "";
+  position: absolute;
+  background-color: black;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  left: 1vmin;
+  top: 1vmin;
+}
+
+.btn:hover{
+  top: 1vmin;
+  left: 1vmin;
+}
+.btn:hover::after{
+  top: 0;
+  left: 0;
+}
+
+.div_retour {
+  width: 29%;
+  height: 11vh;
+  right: 0;
+  top: 0;
+  background-color: #D9D9D9;
+  position: absolute;
+  border-bottom-left-radius: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px;
+  z-index: 1;
+}
+
+body {
+  overflow: hidden;
+  display: grid;
+  height: 100svh;
+  background-color: black;
+  background-size: 35px 45px, 35px 45px;
+  background-position: 0px 0px, 1px 1px;
+  background-repeat: repeat;
+}
+
+body:has(.small-container) {
+  font-size: 50px;
+}
+
+.options {
+	display: flex;
+  justify-content: center;
+	gap: 10px;
+	flex-wrap: wrap;
+  
+}
+strong{
+
+  font-size: 20px;
+  font-family: "Staatliches";
+}
+
+/* début css du boutton Jouer */
+input[type="radio"] {
+	display: none;
+}
+
+label {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	color: red;
+	border: 2px solid red;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+input[type="radio"]:checked + label {
+	color: var(--color);
+	border-color: currentColor;
+	box-shadow: 0 0 10px currentColor, 0 0 10px currentColor, 0 0 10px currentColor;
+}
+
+label:hover,
+input[type="radio"]:checked + label:hover {
+	color: var(--color);
+	border-color: currentColor;
+	box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor,
+		0 0 40px currentColor, 0 0 50px currentColor;
+}
+
+label:hover {
+	color: var(--color);
+	border-color: currentColor;
+	box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+/* fin du css du boutton Jouer */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 30px;
+  }
+}
+.quote {
+  margin: 0;
+  display: grid;
+  place-items: end center;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.quote-attribution {
+  
+  grid-row: 2;
+  grid-column: 1;
+  place-self: end;
+  margin: 0.1em 0.25em;
+  font-family: "Staatliches";
+}
+
+.bam,
+.pow {
+  color: white;
+  grid-row: 1;
+  grid-column: 1;
+  font-size: 3em;
+  font-family: "Bangers";
+}
+
+.bam {
+  animation: pop-out 2s ease-in infinite;
+  filter: drop-shadow(4px 4px black) drop-shadow(-2px -4px red);
+}
+
+
+
+.pow {
+  animation: pop-out 2s 1s ease-in infinite;
+  opacity: 0;
+  filter: drop-shadow(4px 6px red) drop-shadow(-2px -4px black);
+}
+
+@keyframes pop-out {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1) rotate(720deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+
