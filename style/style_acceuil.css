@@ -38,7 +38,6 @@ header{
   font-weight: bolder;
   font-size: large;
   color: white;
-  cursor: pointer;
 }
 .btn::after{
   content: "";
@@ -62,7 +61,7 @@ header{
 }
 
 .div_retour {
-  width: 29%;
+  width: max-content;
   height: 11vh;
   right: 0;
   top: 0;
@@ -74,6 +73,10 @@ header{
   justify-content: space-between;
   padding: 0px 50px;
   z-index: 1;
+}
+
+.div_retour .info-icon{
+  margin-right: 10px;
 }
 
 body {
@@ -92,7 +95,7 @@ body:has(.small-container) {
 
 .options {
 	display: flex;
-  justify-content: center;
+    justify-content: center;
 	gap: 10px;
 	flex-wrap: wrap;
   
@@ -140,6 +143,14 @@ label:hover {
 	border-color: currentColor;
 	box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
 }
+
+.bouton{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
 /* fin du css du boutton Jouer */
 @media only screen and (max-width: 600px) {
   body {
@@ -185,7 +196,6 @@ label:hover {
 }
 
 
-
 .pow {
   animation: pop-out 2s 1s ease-in infinite;
   opacity: 0;
@@ -215,3 +225,10 @@ label:hover {
 }
 
 
+
+.info-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+}

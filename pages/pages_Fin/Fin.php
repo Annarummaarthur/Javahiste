@@ -1,3 +1,9 @@
+<?php
+session_start();
+require("../BDD/connexion_BDD.php");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,31 +17,75 @@
 </head>
 
 <body>
-    <div class="div_Fin">
-        <div class="container label">
-            <blockquote class="quote small-container">
-                <span class="bam">BRAVO</span>
-                <span class="pow">PSEUDOZ</span>
-            </blockquote>
-            <div class="div_info_fin">
-                <h1>Niveau : Débutant</h1>
-                <h1>Temps : 12 min</h1>
-                <h1>Score : 3254</h1>
-            </div>
-            <div class="div_btn_fin">
-                <a href="#">
+<div class="white" style="--color: white">
+    <?php
+        // Récupérer le temps de début
+       $start_time = isset($_GET['start_time']) ? intval($_GET['start_time']) : time();
+
+        // Récupérer le résultat de la vérification depuis les paramètres de l'URL
+        $result = isset($_GET['result']) ? $_GET['result'] : '';
+
+
+        $elapsed_time = time() - $start_time;
+        $score = 2000 - $elapsed_time;
+
+        // Afficher le message approprié selon le résultat
+        if ($result === 'success') {
+            echo '<blockquote class="quote small-container">
+                    <span class="bam">BRAVO</span>
+                    <span class="pow">BRAVO</span>
+                </blockquote>';
+            echo '<h2>vous avez résolu le Sudoku avec succès !<h2>';
+            echo '<p>score : ' . $score. '</p>';
+            echo '<p>Temps écoulé : ' . gmdate("H:i:s", $elapsed_time) . '</p>';
+            echo'<div class="div_btn_fin">';
+            if($_SESSION['user'] == true){
+                $_SESSION['score'] = $score;
+                echo '<div class="btn">
+                            <a href="../BDD/traitement_rejouer_point.php">Rejouer</a>
+                        </div>';
+            }else{
+                echo '<div class="btn">
+                            <a href="../Jeux/sudoku.php">Rejouer</a>
+                        </div>';
+            }
+            echo '<img src="../../img/coupe.png" alt="">';
+            if($_SESSION['user'] == true){
+                $_SESSION['score'] = $score;
+                echo '<div class="btn">
+                            <a href="../BDD/traitement_accueil_point.php">Accueil</a>
+                        </div>';
+            }else{
+                echo '<div class="btn">
+                            <a href="../../index.php">Accueil</a>
+                        </div>';
+            }
+            echo '</div>';
+            
+        } elseif ($result === 'failure') {
+            echo '<blockquote class="quote small-container">
+                    <span class="bam">PERDU</span>
+                    <span class="pow">PERDU</span>
+                </blockquote>';
+            echo '<h2>Le Sudoku que vous avez rempli n\'est pas correct.</h2>';
+            echo '<p>Temps écoulé : ' . gmdate("H:i:s", $elapsed_time) . '</p>';
+            echo'<div class="div_btn_fin">
                     <div class="btn">
-                        Rejouer
+                        <a href="../Jeux/sudoku.php">Rejouer</a>
                     </div>
-                </a>
-                <img src="../../img/coupe.png" alt="">
-                <a href="../../index.php">
+                    <img src="../../img/fail.png" alt="">
+
                     <div class="btn">
-                        Accueil
+                        <a href="../../index.php">Accueil</a>
                     </div>
-                </a>
-            </div>
-        </div>
+                </div>';
+        }else{
+            echo '<h2>Résultat inconnu.</h2>';
+        }
+
+    ?>
+    
+            
     </div>
     <script>
         const body = document.querySelector("body");

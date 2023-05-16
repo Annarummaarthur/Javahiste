@@ -52,33 +52,13 @@
             <a class="btn_change_inscript">J'ai deja un compte</a>
         </div>
     </div>
-    <div class="anim_1">
-        1
-    </div>
-    <div class="anim_2">
-        2
-    </div>
-    <div class="anim_3">
-        3
-    </div>
-    <div class="anim_4">
-        4
-    </div>
-    <div class="anim_5">
-        5
-    </div>
-    <div class="anim_6">
-        6
-    </div>
-    <div class="anim_7">
-        7
-    </div>
-    <div class="anim_8">
-        8
-    </div>
-    <div class="anim_9">
-        9
-    </div>
+    <?php
+    for ($i = 1; $i <= 9; $i++) {
+        echo '<div class="anim_'.$i.'">';
+        echo $i;
+        echo '</div>';
+    }
+    ?>
     <script>
         $(document).ready(function(){
             $(".btn_change_connexion").click(function(){

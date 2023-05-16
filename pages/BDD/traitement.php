@@ -1,5 +1,8 @@
 <?php
+session_start();
 require("../BDD/connexion_BDD.php");
+
+
 
 if (isset($_POST['inscription'])) {
     $pseudo = $_POST["pseudo_inscript"];
@@ -22,7 +25,7 @@ if (isset($_POST['inscription'])) {
         $sth->bindParam(':passwrd', password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 10])); // chiffre le password
         $sth->bindParam(':mail', $mail);
         $sth->execute();
-        header("Location:../accueil");
+        header("Location:../../index.php");
     }
 }
 
@@ -34,8 +37,9 @@ if (isset($_POST['connexion'])) {
     foreach  ($dbco->query($sql) as $row) {
         if($_POST["pseudo_connexion"] == $row['user_pseudo']){
             if( password_verify($mdp, $row['user_password'])){// vérifie que le password correspond au password chiffré de la base de donnée
-                print("connecter");
-                header("Location:../accueil");
+                $_SESSION['user'] = true;
+                $_SESSION['user_name'] = $row['user_pseudo'];
+                header("Location:../../index.php");
             }else{
                 header("Location:../connexion/connexion.php");
             }
@@ -43,4 +47,6 @@ if (isset($_POST['connexion'])) {
     }
     
 }
+
+
 ?>
