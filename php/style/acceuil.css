@@ -91,7 +91,7 @@ body:has(.small-container) {
 
 .options {
 	display: flex;
-  justify-content: center;
+    justify-content: center;
 	gap: 10px;
 	flex-wrap: wrap;
   
@@ -138,6 +138,14 @@ label:hover {
 	color: var(--color);
 	border-color: currentColor;
 	box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+.bouton{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
 }
 /* fin du css du boutton Jouer */
 @media only screen and (max-width: 600px) {
