@@ -2,7 +2,12 @@
 session_start();
 
 
-print_r($_SESSION['user']);
+if($_SESSION['user'] == true){
+    #
+}
+else{
+    $_SESSION['user'] = false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
