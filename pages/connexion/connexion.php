@@ -36,7 +36,7 @@
                             
                 <input class="btn_envoie" type="submit" value="inscription" name="inscription">
             </form>
-            <a class="btn_change_connexion">Je n'est pas de compte</a>
+            <a class="btn_change_connexion">J'ai deja un compte</a>
         </div>
         <div class="div_formulaire_connexion">
             <h1>Connexion</h1>
@@ -49,7 +49,7 @@
                             
                 <input class="btn_envoie" type="submit" value="connexion" name="connexion">
             </form>
-            <a class="btn_change_inscript">J'ai deja un compte</a>
+            <a class="btn_change_inscript">Je n'est pas de compte</a>
         </div>
     </div>
     <?php
