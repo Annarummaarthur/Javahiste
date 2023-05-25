@@ -1,2 +1,0 @@
-# Javahiste
-Sudoku Project
